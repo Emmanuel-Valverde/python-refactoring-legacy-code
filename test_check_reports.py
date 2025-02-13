@@ -25,3 +25,8 @@ class TestCheckReports(unittest.TestCase):
         input_data = io.StringIO("""1 2 7 8 9""")
         expected_output = 0
         self.assertEqual(check_reports(input_data), expected_output)
+
+    def test_report_should_be_insecure_when_level_decrease_four_levels(self):
+        input_data = io.StringIO("""9 7 6 2 1""")
+        expected_output = 0
+        self.assertEqual(check_reports(input_data), expected_output)
