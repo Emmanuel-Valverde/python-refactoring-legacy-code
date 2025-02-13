@@ -23,16 +23,6 @@ class TestCheckReports:
         expected_output = 1
         assert check_reports(input_data) == expected_output
 
-    def test_report_should_be_insecure_when_level_increase_five_levels(self):
-        input_data = io.StringIO("""1 2 7 8 9""")
-        expected_output = 0
-        assert check_reports(input_data) == expected_output
-
-    def test_report_should_be_insecure_when_level_decrease_four_levels(self):
-        input_data = io.StringIO("""9 7 6 2 1""")
-        expected_output = 0
-        assert check_reports(input_data) == expected_output
-
     @pytest.mark.parametrize("report, expected", [
         ("1 2 7 8 9", 0),
         ("9 7 6 2 1", 0)
