@@ -13,6 +13,5 @@ class TestCheckReports(unittest.TestCase):
         1 3 6 7 9""")
 
         expected_output = 2
-        print(input_data)
         result = check_reports(input_data)
         self.assertEqual(result, expected_output)
