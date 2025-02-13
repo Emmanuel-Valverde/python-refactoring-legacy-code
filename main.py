@@ -3,8 +3,8 @@ from io import StringIO
 
 def check_reports(file: StringIO):
     count = 0
-    for inform in file:
-        j=list(map(int, inform.split()))
+    for report in file:
+        j=list(map(int, report.split()))
 
         if j[0] > j[1]:
             m = -1
