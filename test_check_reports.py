@@ -1,9 +1,8 @@
-import unittest
 import io
 from main import check_reports
 
 
-class TestCheckReports(unittest.TestCase):
+class TestCheckReports:
     def test_check_report(self):
         input_data = io.StringIO("""7 6 4 2 1
         1 2 7 8 9
@@ -14,19 +13,19 @@ class TestCheckReports(unittest.TestCase):
 
         expected_output = 2
         result = check_reports(input_data)
-        self.assertEqual(result, expected_output)
+        assert result == expected_output
 
     def test_report_should_be_secure_when_level_decrease_one_or_two_levels(self):
         input_data = io.StringIO("""7 6 4 2 1""")
         expected_output = 1
-        self.assertEqual(check_reports(input_data), expected_output)
+        assert check_reports(input_data) == expected_output
 
     def test_report_should_be_insecure_when_level_increase_five_levels(self):
         input_data = io.StringIO("""1 2 7 8 9""")
         expected_output = 0
-        self.assertEqual(check_reports(input_data), expected_output)
+        assert check_reports(input_data) == expected_output
 
     def test_report_should_be_insecure_when_level_decrease_four_levels(self):
         input_data = io.StringIO("""9 7 6 2 1""")
         expected_output = 0
-        self.assertEqual(check_reports(input_data), expected_output)
+        assert check_reports(input_data) == expected_output
