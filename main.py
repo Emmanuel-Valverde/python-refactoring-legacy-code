@@ -4,17 +4,17 @@ from io import StringIO
 def check_reports(file: StringIO):
     count = 0
     for report in file:
-        j=list(map(int, report.split()))
+        levels=list(map(int, report.split()))
 
-        if j[0] > j[1]:
+        if levels[0] > levels[1]:
             m = -1
-        elif j[0] < j [1]:
+        elif levels[0] < levels [1]:
             m = 1
         else:
             continue
 
-        for x in range(len(j) -1):
-            if 0 < (j[x + 1] -j [x] ) * m < 4:
+        for x in range(len(levels) -1):
+            if 0 < (levels[x + 1] -levels [x] ) * m < 4:
                 t = True
             else:
                 t = False
