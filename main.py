@@ -7,20 +7,20 @@ def check_reports(file: StringIO):
         levels=list(map(int, report.split()))
 
         if levels[0] > levels[1]:
-            m = -1
+            increases = -1
         elif levels[0] < levels [1]:
-            m = 1
+            increases = 1
         else:
             continue
 
-        for x in range(len(levels) -1):
-            if 0 < (levels[x + 1] -levels [x] ) * m < 4:
-                t = True
+        for index in range(len(levels) -1):
+            if 0 < (levels[index + 1] -levels [index] ) * increases < 4:
+                is_safe = True
             else:
-                t = False
+                is_safe = False
                 break
 
-        if t:
+        if is_safe:
             count += 1
     return count
 
