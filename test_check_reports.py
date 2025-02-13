@@ -1,5 +1,7 @@
 import io
 
+import pytest
+
 from main import check_reports
 
 
@@ -30,3 +32,11 @@ class TestCheckReports:
         input_data = io.StringIO("""9 7 6 2 1""")
         expected_output = 0
         assert check_reports(input_data) == expected_output
+
+    @pytest.mark.parametrize("report, expected", [
+        ("1 2 7 8 9", 0),
+        ("9 7 6 2 1", 0)
+    ])
+    def test_invalid_reports_when_the_increase_or_decrease_is_out_of_bound(self, report, expected):
+        report_file = io.StringIO(report)
+        assert check_reports(report_file) == expected
