@@ -13,16 +13,19 @@ def check_reports(file: StringIO):
         else:
             continue
 
-        for index in range(len(levels) -1):
-            if 0 < (levels[index + 1] -levels [index] ) * increases < 4:
-                is_safe = True
-            else:
-                is_safe = False
-                break
-
-        if is_safe:
+        if is_report_safe(increases, levels):
             count += 1
     return count
+
+
+def is_report_safe(increases, levels):
+    for index in range(len(levels) - 1):
+        if 0 < (levels[index + 1] - levels[index]) * increases < 4:
+            is_safe = True
+        else:
+            is_safe = False
+            break
+    return is_safe
 
 
 if __name__ == "__main__":
