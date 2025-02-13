@@ -27,11 +27,11 @@ class TestCheckReports:
         ("1 2 7 8 9", 0),
         ("9 7 6 2 1", 0)
     ])
-    def test_invalid_reports_when_the_increase_or_decrease_is_out_of_bound(self, report, expected):
+    def test_insecure_reports_when_the_increase_or_decrease_is_out_of_bound(self, report, expected):
         report_file = io.StringIO(report)
         assert check_reports(report_file) == expected
 
-    def test_invalid_report_when_the_levels_increase_and_decrease_in_the_same_report(self):
+    def test_insecure_report_when_the_levels_increase_and_decrease_in_the_same_report(self):
         input_data = io.StringIO("""1 3 2 4 5""")
         expected_output = 0
         assert check_reports(input_data) == expected_output
