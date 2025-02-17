@@ -25,3 +25,8 @@ class Report:
 
         if self.report_data[0] < self.report_data[1]:
             return True
+
+    def __eq__(self, other):
+        if isinstance(other, Report):
+            return self.report_data == other.report_data
+        return False

@@ -1,18 +1,16 @@
-from io import StringIO
-
-from report import Report
+from report_repository import ReportRepository
 
 
-def check_reports(file: StringIO):
+def check_reports(report_repository: ReportRepository):
     count = 0
-    for report in file:
-        levels=list(map(int, report.split()))
-        report = Report(levels)
+    reports = report_repository.get_all_reports()
 
+    for report in reports:
         if report.is_safe():
             count += 1
     return count
 
+
+
 if __name__ == "__main__":
-    with open("input.txt", "r") as f:
-        print(check_reports(f))
+        print(check_reports(ReportRepository("input.txt")))
